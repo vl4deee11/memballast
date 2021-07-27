@@ -5,20 +5,20 @@ import (
 	"strconv"
 )
 
-const env = "GO_MEMBALLAST"
+const envBytes = "MEMBALLAST_BYTE"
 
 var ballast []byte
 
 func init() {
-	s, ok := os.LookupEnv(env)
+	s, ok := os.LookupEnv(envBytes)
 	if !ok {
 		return
 	}
-  
+
 	i, err := strconv.Atoi(s)
 	if err != nil {
 		panic(err)
 	}
-  
+
 	ballast = make([]byte, i)
 }
